@@ -202,7 +202,7 @@ function! s:guessProjectRoot()
 
   while len(l:splitsearchdir) > 2
     let l:searchdir = '/'.join(l:splitsearchdir, '/').'/'
-    for l:marker in ['.rootdir', '.git', '.hg', '.svn', 'bzr', '_darcs', 'build.xml']
+    for l:marker in g:ag_rootmarkers
       " found it! Return the dir
       if filereadable(l:searchdir.l:marker) || isdirectory(l:searchdir.l:marker)
         return l:searchdir
